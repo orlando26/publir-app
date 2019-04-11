@@ -1,0 +1,8 @@
+{
+  "name": "publir",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "e8f36031"
+}
