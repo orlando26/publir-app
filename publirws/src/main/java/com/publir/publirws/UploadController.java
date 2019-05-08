@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class UploadController {
+	public static String UPLOAD_DIRECTORY = System.getProperty("usr.dir")+"/uploads";
 
   @CrossOrigin
   @PostMapping("/upload")
@@ -28,12 +29,11 @@ public class UploadController {
     System.out.println(file.getSize());
 
     try {
-      Path downloadedFile = Paths.get("/static/images/"+file.getOriginalFilename());
+      Path downloadedFile = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
       System.out.println(downloadedFile.getRoot());
       Files.deleteIfExists(downloadedFile);
 
       Files.copy(file.getInputStream(), downloadedFile);
-
       return true;
     }
     catch (IOException e) {
