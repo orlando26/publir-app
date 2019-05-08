@@ -28,7 +28,7 @@ public class UploadController {
     System.out.println(file.getSize());
 
     try {
-      Path downloadedFile = Paths.get("classes/static/images/content");
+      Path downloadedFile = Paths.get(file.getOriginalFilename());
       Files.deleteIfExists(downloadedFile);
 
       Files.copy(file.getInputStream(), downloadedFile);
