@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverURL: 'https://a65740db.ngrok.io'
+  serverURL: 'http://www.medcongress.com.mx'
 };
 
 /*
