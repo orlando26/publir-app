@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class UploadController {
-	public static String UPLOAD_DIRECTORY = System.getProperty("usr.dir")+"/uploads";
+	public static String UPLOAD_DIRECTORY = System.getProperty("user.dir")+"/uploads";
 
   @CrossOrigin
   @PostMapping("/upload")
