@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>display-schedule</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Current Image</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
 
+  <ion-button expand="block" (click)="takePhoto()">Take a picture</ion-button>
+  <ion-button expand="block" (click)="selectPhoto()">Select from gallery</ion-button>
 </ion-content>

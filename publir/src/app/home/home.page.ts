@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController} from '@ionic/angular';
+import { DisplaySchedulePage } from '../display-schedule/display-schedule.page';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  
+
   public map: any = {
     lat: 25.743554,
       lng: -100.309214,
@@ -18,6 +23,10 @@ export class HomePage {
       zoom: 12
   }; 
 
+  constructor(
+    public navCtrl: NavController) {
+  }
+
   ionViewDidLoad(){
     console.log('hi')
     this.map = {
@@ -26,4 +35,11 @@ export class HomePage {
       zoom: 12
     }
   }
+
+
+  goToSchedule(){
+    this.navCtrl.navigateForward('/display-schedule');
+  }
+
+  
 }

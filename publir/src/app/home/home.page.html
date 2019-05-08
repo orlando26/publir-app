@@ -15,7 +15,7 @@
         <agm-marker [latitude]="map.lat" [longitude]="map.lng">
           <agm-info-window>
             <strong>Pantalla 1</strong><br>
-            <ion-button size="small">view schedule</ion-button>
+            <ion-button size="small" (click)="goToSchedule()">view schedule</ion-button>
           </agm-info-window>
         </agm-marker>
         <agm-marker [latitude]="marker.lat" [longitude]="marker.lng">
