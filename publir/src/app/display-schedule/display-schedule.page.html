@@ -7,16 +7,19 @@
 <ion-content>
     <ion-card>
         <ion-card-header>
-          <ion-card-subtitle>Current Image</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
+          <ion-card-subtitle>Mupify</ion-card-subtitle>
+          <ion-card-title>Current Image</ion-card-title>
         </ion-card-header>
       
         <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+          <ion-item>
+            <ion-label>
+              <img *ngIf="myPhoto" [src]="myPhoto"/>
+            </ion-label>
+          </ion-item>
         </ion-card-content>
       </ion-card>
 
-  <ion-button expand="block" (click)="takePhoto()">Take a picture</ion-button>
-  <ion-button expand="block" (click)="selectPhoto()">Select from gallery</ion-button>
+  <ion-button expand="full" shape="round" size="large" (click)="takePhoto()"><ion-icon name="camera"></ion-icon></ion-button>
+  <ion-button expand="full" shape="round" size="large" (click)="selectPhoto()"><ion-icon name="image"></ion-icon></ion-button>
 </ion-content>

@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +21,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class UploadController {
 	public static String UPLOAD_DIRECTORY = System.getProperty("user.dir")+"/target/classes/static/images";
+	
+	private String base64Img = "";
 
-  @CrossOrigin
+  public String getBase64Img() {
+		return base64Img;
+	}
+
+	public void setBase64Img(String base64Img) {
+		this.base64Img = base64Img;
+	}
+
+@CrossOrigin
   @PostMapping("/upload")
   public boolean pictureupload(@RequestParam("file") MultipartFile file) {
 
@@ -30,9 +42,11 @@ public class UploadController {
 
     try {
       Path downloadedFile = Paths.get(UPLOAD_DIRECTORY, "img");
-      System.out.println(downloadedFile.getRoot());
       Files.deleteIfExists(downloadedFile);
-
+      StringBuilder sb = new StringBuilder();
+      sb.append("data:image/png;base64,");
+      sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(file.getBytes(), false)));
+      setBase64Img(sb.toString());
       Files.copy(file.getInputStream(), downloadedFile);
       return true;
     }
@@ -55,6 +69,12 @@ public class UploadController {
   @GetMapping("/test")
   public String test() {
 	  return "working...";
+  }
+  
+  @CrossOrigin
+  @GetMapping("/getImg")
+  public String getImg() {
+	  return getBase64Img();
   }
   
 }
