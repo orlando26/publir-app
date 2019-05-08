@@ -29,7 +29,7 @@ public class UploadController {
     System.out.println(file.getSize());
 
     try {
-      Path downloadedFile = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
+      Path downloadedFile = Paths.get(UPLOAD_DIRECTORY, "img");
       System.out.println(downloadedFile.getRoot());
       Files.deleteIfExists(downloadedFile);
 
