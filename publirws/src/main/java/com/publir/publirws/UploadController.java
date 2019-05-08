@@ -28,7 +28,7 @@ public class UploadController {
     System.out.println(file.getSize());
 
     try {
-      Path downloadedFile = Paths.get("/publir-app/publirws/target/classes/static/images/content");
+      Path downloadedFile = Paths.get("/classes/static/images/content");
       Files.deleteIfExists(downloadedFile);
 
       Files.copy(file.getInputStream(), downloadedFile);
